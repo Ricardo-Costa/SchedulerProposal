@@ -1,0 +1,7 @@
+:root {
+  --main-color: rgb(116, 185, 255);
+  --background-grey: #eaeaea;
+
+  /* fonts */
+  --main-font-family: 'Open Sans', sans-serif;
+}
