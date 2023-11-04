@@ -1,8 +1,28 @@
+class Schedule
+{
+  /**
+   * @param {string} title 
+   * @param {Date} startDate 
+   * @param {Date} endDate 
+   */
+  constructor(title, startDate, endDate)
+  {
+    this.title = title;
+    this.startDate = startDate;
+    this.endDate = endDate;
+  }
+}
+
 class ScheduleComponentConfigs
 {
-  constructor(componentHtmlId)
+  /**
+   * @param {string} componentHtmlId 
+   * @param {Schedule[]} schedules 
+   */
+  constructor(componentHtmlId, schedules)
   {
     this.componentHtmlId = componentHtmlId;
+    this.schedules = schedules;
   }
 }
 
@@ -11,15 +31,16 @@ class ScheduleComponent
   /**
    * @param {ScheduleComponentConfigs} param 
    */
-  constructor({ componentHtmlId })
+  constructor({ componentHtmlId, schedules })
   {
     if (!componentHtmlId) throw new Error("Component Html Id is required to render component.");
+    if (!(schedules instanceof Array)) throw new Error("Error, schedules is not an Array instance.");
 
     this.scheduleComponentConfigs = new ScheduleComponentConfigs(componentHtmlId);
+    this.schedules = schedules;
 
     /** @var {HTMLElement|null} */
     this.componentElement = this.retrieveElement();
-
   }
 
   retrieveElement()
@@ -32,8 +53,34 @@ class ScheduleComponent
     return componentElement;
   }
 
+  /**
+   * @param {Schedule} schedule 
+   * @returns {string}
+   */
+  formatScheduleElement(schedule)
+  {
+    return ``
+  }
+
   getBasicComponentLayout()
   {
+    let schedulesToRender = '';
+
+    const mainData = {
+      "20231104": {
+        times: {
+          "00:00": {// hour
+            "1": "", // minutes
+            "2": ""
+          },
+          "01:00": {
+            "00:01": "",
+            "2": ""
+          }
+        }
+      }
+    };
+
     return `
       <div class="schedule-container">
         <div class="schedule-header">
@@ -60,9 +107,9 @@ class ScheduleComponent
                 <div class="day-hour">02:00</div>
               </div>
               <div class="schedule-week-day-content">
-                <div class="day-content-off"></div>
-                <div class="day-content-off"></div>
-                <div class="day-content-off"></div>
+                <div class="day-content-off">off...</div>
+                <div class="day-content-off">off...</div>
+                <div class="day-content-off">off...</div>
               </div>
             </div>
           </div>
@@ -76,9 +123,9 @@ class ScheduleComponent
                 <div class="day-hour">02:00</div>
               </div>
               <div class="schedule-week-day-content">
-                <div class="day-content-off"></div>
+                <div class="day-content-off">off...</div>
                 <div class="day-content-set">Piratas do Caribe</div>
-                <div class="day-content-set"></div>
+                <div class="day-content-set">Piratas do Caribe</div>
               </div>
             </div>
           </div>
@@ -95,4 +142,7 @@ class ScheduleComponent
   }
 }
 
-export default ScheduleComponent;
+export {
+  Schedule,
+  ScheduleComponent
+};

@@ -75,29 +75,31 @@ button {
   border-bottom: var(--default-border);
 }
 .schedule-week-day-hour {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   border-right: var(--default-border);
-  color: grey;
-  padding: .5rem;
-  font-size: 1rem;
+  font-size: .7rem;
+}
+.schedule-week-day-hour .day-hour {
+  padding: .1rem .5rem;
+  border-bottom: var(--default-border);
 }
 .schedule-week-day-content {
   display: flex;
   flex-direction: column;
 }
-
-.day-content-off {
-  /* background-color: grey; */
-  padding: .5rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: .5rem;
+.schedule-week-day-content .day-content-off,
+.schedule-week-day-content .day-content-set {
+  font-size: .7rem;
+  padding: .1rem .5rem;
+  border-bottom: var(--default-border);
 }
-.day-content-set {
+.schedule-week-day-content .day-content-off {
+  border-bottom-color: transparent;
+  color: grey;
+}
+.schedule-week-day-content .day-content-set {
   cursor: pointer;
   background-color: var(--main-color);
-  font-size: 1rem;
-  font-size: .7rem;
-  padding: .5rem;
 }

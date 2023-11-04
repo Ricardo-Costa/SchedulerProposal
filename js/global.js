@@ -1,11 +1,12 @@
-import ScheduleComponent from "./ScheduleComponent.js";
+import { Schedule, ScheduleComponent } from "./ScheduleComponent.js";
 
 class App {
   static init() {
     console.log('app started....');
 
     let scheduleComponent = new ScheduleComponent({
-      componentHtmlId: "main-schedule-component"
+      componentHtmlId: "main-schedule-component",
+      schedules: []
     });
 
     scheduleComponent.renderComponent();
