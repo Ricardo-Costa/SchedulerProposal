@@ -1,6 +1,8 @@
 :root {
   --main-color: rgb(116, 185, 255);
+  --main-text-color: #202020;
   --background-grey: #eaeaea;
+  --default-border: 1px solid #d6d6d6;
 
   /* fonts */
   --main-font-family: 'Open Sans', sans-serif;

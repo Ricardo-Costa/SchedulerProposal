@@ -1,6 +1,14 @@
+import ScheduleComponent from "./ScheduleComponent.js";
+
 class App {
   static init() {
-    alert('app started....')
+    console.log('app started....');
+
+    let scheduleComponent = new ScheduleComponent({
+      componentHtmlId: "main-schedule-component"
+    });
+
+    scheduleComponent.renderComponent();
   }
 }
 
